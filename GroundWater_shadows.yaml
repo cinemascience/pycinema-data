@@ -1,0 +1,39 @@
+#
+# configuration file for 'cinema compose' operation
+#
+# running 'cinema compose GroundWater_shadows.yaml' will result
+# in a composited, colored database that has shadows
+#
+
+# compositing configuration
+config:
+  debug: True
+  verbose: True
+  depthchannel: Depth
+  output: GroundWater_shadows.cdb
+
+database:
+  path: GroundWater.cdb
+  filecolumn: FILE
+  elementlabel: object_id
+
+# elements to be composited
+elements:
+  - name: 0
+    channel: Elevation
+    channelrange: [-1.0, 1.0]
+    colormap: rainbow
+    nancolor: [0, 0, 0, 0]
+  - name: 1 
+    channel: Elevation
+    channelrange: [-1.0, 1.0]
+    colormap: gray
+    nancolor: [0, 0, 0, 0]
+
+# shadow definition
+shadow:
+  state: True
+  type: SSAO
+  radius: 0.03
+  samples: 32
+  diff: 0.5
