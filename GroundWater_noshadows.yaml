@@ -10,7 +10,7 @@ config:
   debug: True
   verbose: True
   depthchannel: Depth
-  output: GroundWater_shadows.cdb
+  output: GroundWater_noshadows.cdb
 
 database:
   path: GroundWater.cdb
